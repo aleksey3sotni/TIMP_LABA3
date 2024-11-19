@@ -33,10 +33,10 @@ SUITE(CipherTest) {
         CHECK_THROW(coder(2, "?%»%"), cipher_error);
     }
     TEST(TextWithNumber) {
-        CHECK_EQUAL(coder(4, "play12BOIe"), "PABILYOE");
+        CHECK_THROW(coder(2, "play12BOIe"), cipher_error);
     }
     TEST(TextWithSpaceAndPunct) {
-        CHECK_EQUAL(coder(2, "play boy! "), "PABYLYO");
+        CHECK_THROW(coder(2, "play boy! "), cipher_error);
     }
     
     
@@ -53,10 +53,10 @@ SUITE(CipherTest) {
         CHECK_THROW(decoder(2, " "), cipher_error);
     }
     TEST(TextNumberDecrypt) {
-        CHECK_EQUAL(decoder(2, "PABI12LYOE"), "PLAYBOIE");
+        CHECK_THROW(decoder(2, "PABI12LYOE"), cipher_error);
     }
     TEST(TextSymbolDecrypt) {
-        CHECK_EQUAL(decoder(2, "PABI!?LYOE"), "PLAYBOIE");
+        CHECK_THROW(decoder(2, "PABI!?LYOE"), cipher_error);
     }
 }
 
